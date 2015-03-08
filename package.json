@@ -12,6 +12,19 @@
     "bcrypt": "^0.8.1",
     "hapi": "^8.2.0",
     "hapi-auth-cookie": "^2.0.0",
-    "mongoose": "^3.8.24"
+    "hapi-react-views": "^2.0.1",
+    "mongoose": "^3.8.24",
+    "react": "^0.12.2"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "gulp": "^3.8.11",
+    "gulp-browserify": "^0.5.1",
+    "gulp-cached": "^1.0.2",
+    "gulp-changed": "^1.1.1",
+    "gulp-nodemon": "^1.0.5",
+    "gulp-react": "^3.0.0",
+    "gulp-replace": "^0.5.3",
+    "gulp-watch": "^4.1.1"
   }
 }
