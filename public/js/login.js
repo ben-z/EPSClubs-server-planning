@@ -18,7 +18,7 @@ var Login = React.createClass({displayName: "Login",
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement(TopBar, null), 
+        React.createElement(TopBar, {layout: "signup"}), 
           React.createElement("form", {className: "sign-in-form", onSubmit: this.handleLogin, method: "post", action: "/login"}, 
             React.createElement("h3", null, "Sign in"), 
             "Email: ", React.createElement("input", {type: "email", ref: "email_address"}), React.createElement("br", null), 

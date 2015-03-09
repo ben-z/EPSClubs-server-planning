@@ -3,7 +3,6 @@ var TopBar = require('./common/topbar.jsx');
 var mui = require('material-ui');
 var TextField = mui.TextField;
 var RaisedButton = mui.RaisedButton;
-var AppBar = mui.AppBar;
 var IconButton = mui.IconButton;
 var Snackbar = mui.Snackbar;
 
@@ -172,10 +171,7 @@ var Index = React.createClass({
 
     return (
       <div>
-        <AppBar className="top-bar" title="Elgin Park Clubs" showMenuIconButton={false}>
-          <RaisedButton primary={true} label="Sign In" className="top-bar-button--right"
-            linkButton={true} href="/login"/>
-        </AppBar>
+        <TopBar layout="login"/>
         <div className="main Grid Grid--gutters Grid--full large-Grid--1of2">
           <div className="Grid-cell">
             <h3>Get involved in exciting events<br />Elgin has to offer.</h3>
@@ -187,7 +183,6 @@ var Index = React.createClass({
                 <div className="Grid-cell">
                   <TextField floatingLabelText="First Name"
                     ref="first_name"
-                    required="true"
                     onChange={this._handleFNameInputChange}
                     onBlur={this._handleFNameInputChange}
                     errorText={this.state.fNameErrorText}

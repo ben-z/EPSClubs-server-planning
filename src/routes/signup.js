@@ -4,10 +4,6 @@ var User = require('../schemas/User');
 var addUser = function(request, reply){
 
   // Double check if any field is missing
-  if (!request.payload.email_address)
-    return reply({status:'fail',data:{message:'Missing email address'}});
-  if (!request.payload.password)
-    return reply({status:'fail',data:{message:'Missing password'}});
   if (!request.payload.first_name)
     return reply({status:'fail',data:{message:'Missing first name'}});
   if (!request.payload.last_name)
@@ -17,7 +13,11 @@ var addUser = function(request, reply){
   if (!request.payload.class_of)
     return reply({status:'fail',data:{message:'When do you graduate?'}});
   if (request.payload.class_of <= 2015)
-    return reply({status:'fail',data:{message:'You have already graduated.'}});
+    return reply({status:'fail',data:{message:'Have you already graduated?'}});
+  if (!request.payload.email_address)
+    return reply({status:'fail',data:{message:'Missing email address'}});
+  if (!request.payload.password)
+    return reply({status:'fail',data:{message:'Missing password'}});
 
   email_exists(request.payload.email_address, function(exists){
     if (exists) {

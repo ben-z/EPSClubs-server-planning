@@ -742,7 +742,7 @@ hr {
 .mui-app-bar {
   width: 100%;
   min-height: 64px;
-  background-color: #673ab7;
+  background-color: #3f51b5;
   z-index: 5;
 }
 .mui-app-bar .mui-paper-container {
@@ -811,7 +811,7 @@ hr {
   transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, transform 0ms cubic-bezier(0.23, 1, 0.32, 1) 450ms;
 }
 .mui-checkbox .mui-checkbox-icon .mui-checkbox-check * {
-  fill: #673ab7;
+  fill: #3f51b5;
 }
 .mui-checkbox .mui-checkbox-icon .mui-checkbox-box {
   position: absolute;
@@ -834,14 +834,14 @@ hr {
   transition: all 100s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 }
 .mui-checkbox.mui-is-switched .mui-checkbox-icon .mui-checkbox-box * {
-  fill: #673ab7;
+  fill: #3f51b5;
 }
 .mui-checkbox.mui-is-disabled .mui-checkbox-icon .mui-checkbox-check *,
 .mui-checkbox.mui-is-disabled .mui-checkbox-icon .mui-checkbox-box * {
   fill: rgba(0, 0, 0, 0.3);
 }
 .mui-checkbox.mui-is-required .mui-checkbox-icon .mui-checkbox-box * {
-  fill: #673ab7;
+  fill: #3f51b5;
 }
 .mui-date-picker-calendar {
   font-size: 12px;
@@ -938,13 +938,13 @@ hr {
   font-size: 13px;
   height: 32px;
   line-height: 32px;
-  background-color: #0097a7;
+  background-color: #303f9f;
   color: #ffffff;
   border-radius: 2px 2px 0 0;
 }
 .mui-date-picker-date-display .mui-date-picker-date-display-date {
   padding: 16px 0;
-  background-color: #673ab7;
+  background-color: #3f51b5;
   color: #ffffff;
 }
 .mui-date-picker-date-display .mui-date-picker-date-display-month,
@@ -1013,7 +1013,7 @@ hr {
 }
 .mui-date-picker-day-button .mui-date-picker-day-button-select {
   position: absolute;
-  background-color: #0097a7;
+  background-color: #303f9f;
   height: 32px;
   width: 32px;
   opacity: 0;
@@ -1034,7 +1034,7 @@ hr {
           transform: scale(1);
 }
 .mui-date-picker-day-button.mui-is-current-date {
-  color: #673ab7;
+  color: #3f51b5;
 }
 .mui-dialog-window {
   position: fixed;
@@ -1239,7 +1239,7 @@ hr {
 }
 .mui-enhanced-switch.mui-is-switched .mui-focus-ripple-inner,
 .mui-enhanced-switch.mui-is-switched .mui-ripple-circle-inner {
-  background-color: rgba(103, 58, 183, 0.2);
+  background-color: rgba(63, 81, 181, 0.2);
 }
 .mui-enhanced-textarea .mui-enhanced-textarea-shadow,
 .mui-enhanced-textarea .mui-enhanced-textarea-input {
@@ -1313,17 +1313,17 @@ hr {
   background-color: rgba(255, 64, 129, 0.2);
 }
 .mui-flat-button.mui-is-secondary {
-  color: #673ab7;
+  color: #3f51b5;
 }
 .mui-flat-button.mui-is-secondary:hover,
 .mui-flat-button.mui-is-secondary.mui-is-keyboard-focused {
-  background-color: #fdfcfe;
+  background-color: #fefeff;
 }
 .mui-flat-button.mui-is-secondary .mui-touch-ripple .mui-ripple-circle-inner {
-  background-color: rgba(103, 58, 183, 0.2);
+  background-color: rgba(63, 81, 181, 0.2);
 }
 .mui-flat-button.mui-is-secondary .mui-focus-ripple .mui-focus-ripple-inner {
-  background-color: rgba(103, 58, 183, 0.2);
+  background-color: rgba(63, 81, 181, 0.2);
 }
 .mui-floating-action-button {
   display: inline-block;
@@ -1375,11 +1375,11 @@ hr {
   line-height: 40px;
 }
 .mui-floating-action-button.mui-is-secondary .mui-floating-action-button-container {
-  background-color: #673ab7;
+  background-color: #3f51b5;
 }
 .mui-floating-action-button.mui-is-secondary .mui-floating-action-button-container:hover,
 .mui-floating-action-button.mui-is-secondary .mui-floating-action-button-container.mui-is-keyboard-focused {
-  background-color: #5e35a8;
+  background-color: #46a149;
 }
 .mui-floating-action-button.mui-is-secondary .mui-floating-action-button-icon {
   color: #ffffff;
@@ -1856,7 +1856,7 @@ hr {
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 }
 .mui-radio-button .mui-radio-button-icon .mui-radio-button-fill * {
-  fill: #673ab7;
+  fill: #3f51b5;
 }
 .mui-radio-button .mui-radio-button-icon .mui-radio-button-target {
   transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
@@ -1880,7 +1880,7 @@ hr {
           transform: scale(0);
 }
 .mui-radio-button.mui-is-switched .mui-radio-button-icon .mui-radio-button-target * {
-  fill: #673ab7;
+  fill: #3f51b5;
   transition: all 100s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 }
 .mui-radio-button.mui-is-disabled .mui-radio-button-icon .mui-radio-button-fill *,
@@ -1888,7 +1888,7 @@ hr {
   fill: rgba(0, 0, 0, 0.3);
 }
 .mui-radio-button.mui-is-required .mui-radio-button-icon .mui-radio-button-target * {
-  fill: #673ab7;
+  fill: #3f51b5;
 }
 .mui-raised-button {
   display: inline-block;
@@ -1967,10 +1967,10 @@ hr {
   background-color: #f30053;
 }
 .mui-raised-button.mui-is-secondary .mui-raised-button-container {
-  background-color: #673ab7;
+  background-color: #4caf50;
 }
 .mui-raised-button.mui-is-secondary .mui-raised-button-container.mui-is-keyboard-focused {
-  background-color: #5e35a8;
+  background-color: #46a149;
 }
 .mui-raised-button.mui-is-secondary .mui-touch-ripple .mui-ripple-circle-inner {
   background-color: rgba(255, 255, 255, 0.35);
@@ -1982,7 +1982,7 @@ hr {
   color: #ffffff;
 }
 .mui-raised-button.mui-is-secondary:hover .mui-raised-button-container {
-  background-color: #5e35a8;
+  background-color: #46a149;
 }
 .mui-focus-ripple {
   position: absolute;
@@ -2099,7 +2099,7 @@ hr {
   left: 0;
 }
 .mui-slider .mui-slider-selection-low .mui-slider-selection-fill {
-  background-color: #b2ebf2;
+  background-color: #c5cae9;
   margin-right: 6px;
 }
 .mui-slider .mui-slider-selection-high {
@@ -2129,7 +2129,7 @@ hr {
 }
 .mui-slider:not(.mui-disabled) .mui-slider-handle {
   border: 0px solid transparent;
-  background-color: #b2ebf2;
+  background-color: #c5cae9;
 }
 .mui-slider:not(.mui-disabled) .mui-slider-handle:active {
   width: 24px;
@@ -2141,7 +2141,7 @@ hr {
 }
 .mui-slider:not(.mui-disabled):hover:not(.mui-slider-zero) .mui-slider-handle:not(:active),
 .mui-slider:not(.mui-disabled):focus:not(.mui-slider-zero) .mui-slider-handle:not(:active) {
-  border: 12px solid rgba(178, 235, 242, 0.2);
+  border: 12px solid rgba(197, 202, 233, 0.2);
   width: 36px;
   height: 36px;
 }
@@ -2235,7 +2235,7 @@ hr {
   margin: 0;
   height: 56px;
   line-height: 48px;
-  color: #673ab7;
+  color: #3f51b5;
   border-top: solid 1px #e0e0e0;
   padding-top: 8px;
   margin-top: 8px;
@@ -2367,7 +2367,7 @@ hr {
   margin: 0;
 }
 .mui-text-field .mui-text-field-focus-underline {
-  border-color: #673ab7;
+  border-color: #3f51b5;
   border-bottom-width: 2px;
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
@@ -2433,7 +2433,7 @@ hr {
 .mui-text-field.mui-has-floating-labels.mui-is-focused .mui-text-field-floating-label {
   -webkit-transform: scale(0.75) translate3d(0, -18px, 0);
           transform: scale(0.75) translate3d(0, -18px, 0);
-  color: #673ab7;
+  color: #3f51b5;
 }
 .mui-text-field.mui-has-floating-labels.mui-is-focused.mui-has-error .mui-text-field-floating-label {
   color: #f44336;
@@ -2474,11 +2474,11 @@ hr {
   left: -10px;
 }
 .mui-toggle.mui-is-switched .mui-toggle-icon .mui-toggle-track {
-  background-color: rgba(103, 58, 183, 0.5);
+  background-color: rgba(63, 81, 181, 0.5);
 }
 .mui-toggle.mui-is-switched .mui-toggle-icon .mui-toggle-thumb {
   left: 18px;
-  background-color: #673ab7;
+  background-color: #3f51b5;
 }
 .mui-toggle.mui-is-disabled .mui-toggle-icon {
   cursor: default;
@@ -2490,10 +2490,10 @@ hr {
   background-color: #bdbdbd;
 }
 .mui-toggle.mui-is-required .mui-toggle-icon .mui-toggle-track {
-  background-color: rgba(103, 58, 183, 0.5);
+  background-color: rgba(63, 81, 181, 0.5);
 }
 .mui-toggle.mui-is-required .mui-toggle-icon .mui-toggle-thumb {
-  background-color: #673ab7;
+  background-color: #3f51b5;
 }
 .mui-toolbar {
   background-color: #e1e1e1;
@@ -3082,6 +3082,12 @@ html {
   padding-left: 0;
   padding-right: 0;
 }
+.top-bar .top-bar-link {
+  margin-top: 13px;
+  color: white;
+  text-decoration: none;
+  float: right;
+}
 .logo {
   cursor: pointer;
   font-size: 24px;
@@ -3094,7 +3100,7 @@ html {
   color: #ffffff;
   line-height: 64px;
   font-weight: 300;
-  background-color: #673ab7;
+  background-color: #3f51b5;
   padding-left: 24px;
   padding-top: 0;
   margin-bottom: 8px;
@@ -3118,7 +3124,7 @@ html {
   color: #ffffff;
   line-height: 64px;
   font-weight: 300;
-  background-color: #673ab7;
+  background-color: #3f51b5;
   padding-left: 24px;
   padding-top: 0;
   margin-bottom: 8px;

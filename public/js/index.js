@@ -3,7 +3,6 @@
 
 var TextField = mui.TextField;
 var RaisedButton = mui.RaisedButton;
-var AppBar = mui.AppBar;
 var IconButton = mui.IconButton;
 var Snackbar = mui.Snackbar;
 
@@ -172,10 +171,7 @@ var Index = React.createClass({displayName: "Index",
 
     return (
       React.createElement("div", null, 
-        React.createElement(AppBar, {className: "top-bar", title: "Elgin Park Clubs", showMenuIconButton: false}, 
-          React.createElement(RaisedButton, {primary: true, label: "Sign In", className: "top-bar-button--right", 
-            linkButton: true, href: "/login"})
-        ), 
+        React.createElement(TopBar, {layout: "login"}), 
         React.createElement("div", {className: "main Grid Grid--gutters Grid--full large-Grid--1of2"}, 
           React.createElement("div", {className: "Grid-cell"}, 
             React.createElement("h3", null, "Get involved in exciting events", React.createElement("br", null), "Elgin has to offer.")
@@ -187,7 +183,6 @@ var Index = React.createClass({displayName: "Index",
                 React.createElement("div", {className: "Grid-cell"}, 
                   React.createElement(TextField, {floatingLabelText: "First Name", 
                     ref: "first_name", 
-                    required: "true", 
                     onChange: this._handleFNameInputChange, 
                     onBlur: this._handleFNameInputChange, 
                     errorText: this.state.fNameErrorText}

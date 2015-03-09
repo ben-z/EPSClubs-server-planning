@@ -18,7 +18,7 @@ var Login = React.createClass({
   render: function() {
     return (
       <div>
-        <TopBar />
+        <TopBar layout="signup"/>
           <form className="sign-in-form" onSubmit={this.handleLogin} method="post" action="/login">
             <h3>Sign in</h3>
             Email: <input type="email" ref="email_address" /><br />

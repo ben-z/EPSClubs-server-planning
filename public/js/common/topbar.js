@@ -1,8 +1,14 @@
 
 
 var AppBar = mui.AppBar;
+var RaisedButton = mui.RaisedButton;
 
 var TopBar = React.createClass({displayName: "TopBar",
+
+  propTypes: {
+    layout: React.PropTypes.string,
+  },
+
   getInitialState: function() {
     if (typeof window !== "undefined") {
       width = window.innerWidth
@@ -32,17 +38,23 @@ var TopBar = React.createClass({displayName: "TopBar",
 
   render: function() {
 
+    if (this.props.layout == 'login') {
+      elements = (
+        React.createElement(RaisedButton, {primary: true, label: "Sign In", className: "top-bar-button--right", 
+          linkButton: true, href: "/login"})
+      );
+    } else if (this.props.layout == 'signup') {
+      elements = (
+        React.createElement(RaisedButton, {primary: true, label: "Sign Up", className: "top-bar-button--right", 
+          linkButton: true, href: "/signup"})
+      );
+    }
+
     return (
       React.createElement("div", null, 
-
-        React.createElement("nav", null, 
-          "Elgin Park Clubs |", 
-          React.createElement("a", {href: "/"}, "Welcome"), " |", 
-          React.createElement("a", {href: "/clubs"}, "Clubs"), " |", 
-          React.createElement("a", {href: "/events"}, "Events"), " |", 
-          React.createElement("a", {href: "/login"}, React.createElement("input", {type: "button", name: "sign-in", value: "Sign in"}))
+        React.createElement(AppBar, {className: "top-bar", title: "Elgin Park Clubs", showMenuIconButton: false}, 
+          elements
         )
-
       )
     );
   }

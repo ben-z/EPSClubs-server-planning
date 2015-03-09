@@ -1,8 +1,14 @@
 var React = require('React');
 var mui = require('material-ui');
 var AppBar = mui.AppBar;
+var RaisedButton = mui.RaisedButton;
 
 var TopBar = React.createClass({
+
+  propTypes: {
+    layout: React.PropTypes.string,
+  },
+
   getInitialState: function() {
     if (typeof window !== "undefined") {
       width = window.innerWidth
@@ -32,17 +38,23 @@ var TopBar = React.createClass({
 
   render: function() {
 
+    if (this.props.layout == 'login') {
+      elements = (
+        <RaisedButton primary={true} label="Sign In" className="top-bar-button--right"
+          linkButton={true} href="/login"/>
+      );
+    } else if (this.props.layout == 'signup') {
+      elements = (
+        <RaisedButton primary={true} label="Sign Up" className="top-bar-button--right"
+          linkButton={true} href="/signup"/>
+      );
+    }
+
     return (
       <div>
-
-        <nav>
-          Elgin Park Clubs |
-          <a href="/">Welcome</a> |
-          <a href="/clubs">Clubs</a> |
-          <a href="/events">Events</a> |
-          <a href="/login"><input type="button" name="sign-in" value="Sign in" /></a>
-        </nav>
-
+        <AppBar className="top-bar" title="Elgin Park Clubs" showMenuIconButton={false}>
+          {elements}
+        </AppBar>
       </div>
     );
   }
