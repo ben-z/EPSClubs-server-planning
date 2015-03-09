@@ -2472,7 +2472,7 @@ var EventConstants = {
   PropagationPhases: PropagationPhases
 };
 
-module.exports = EventConstants;
+module.exports = window.EventConstants = EventConstants;
 
 },{"./keyMirror":146}],17:[function(require,module,exports){
 /**
@@ -2834,7 +2834,7 @@ var EventPluginHub = {
 
 };
 
-module.exports = EventPluginHub;
+module.exports = window.EventPluginHub = EventPluginHub;
 
 },{"./EventPluginRegistry":19,"./EventPluginUtils":20,"./accumulateInto":109,"./forEachAccumulated":126,"./invariant":140}],19:[function(require,module,exports){
 /**
@@ -3331,7 +3331,7 @@ var EventPluginUtils = {
   useTouchEvents: false
 };
 
-module.exports = EventPluginUtils;
+module.exports = window.EventPluginUtils = EventPluginUtils;
 
 },{"./EventConstants":16,"./invariant":140}],21:[function(require,module,exports){
 /**
@@ -3471,7 +3471,7 @@ var EventPropagators = {
   accumulateEnterLeaveDispatches: accumulateEnterLeaveDispatches
 };
 
-module.exports = EventPropagators;
+module.exports = window.EventPropagators = EventPropagators;
 
 },{"./EventConstants":16,"./EventPluginHub":18,"./accumulateInto":109,"./forEachAccumulated":126}],22:[function(require,module,exports){
 /**
@@ -16307,7 +16307,7 @@ SyntheticEvent.augmentClass = function(Class, Interface) {
 
 PooledClass.addPoolingTo(SyntheticEvent, PooledClass.threeArgumentPooler);
 
-module.exports = SyntheticEvent;
+module.exports = window.SyntheticEvent = SyntheticEvent;
 
 },{"./Object.assign":28,"./PooledClass":29,"./emptyFunction":121,"./getEventTarget":131}],100:[function(require,module,exports){
 /**
@@ -16673,7 +16673,7 @@ function SyntheticUIEvent(dispatchConfig, dispatchMarker, nativeEvent) {
 
 SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 
-module.exports = SyntheticUIEvent;
+module.exports = window.SyntheticUIEvent = SyntheticUIEvent;
 
 },{"./SyntheticEvent":99,"./getEventTarget":131}],106:[function(require,module,exports){
 /**
@@ -17005,7 +17005,7 @@ var ViewportMetrics = {
 
 };
 
-module.exports = ViewportMetrics;
+module.exports = window.ViewportMetrics = ViewportMetrics;
 
 },{"./getUnboundedScrollPosition":136}],109:[function(require,module,exports){
 /**
@@ -17069,7 +17069,7 @@ function accumulateInto(current, next) {
   return [current, next];
 }
 
-module.exports = accumulateInto;
+module.exports = window.accumulateInto = accumulateInto;
 
 },{"./invariant":140}],110:[function(require,module,exports){
 /**
@@ -18980,7 +18980,7 @@ var keyOf = function(oneKeyObj) {
 };
 
 
-module.exports = keyOf;
+module.exports = window.keyOf = keyOf;
 
 },{}],148:[function(require,module,exports){
 /**
