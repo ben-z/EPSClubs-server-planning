@@ -16,10 +16,19 @@ var addUser = function(request, reply){
     return reply({status:'fail',data:{message:'Missing student number'}});
   if (!request.payload.class_of)
     return reply({status:'fail',data:{message:'When do you graduate?'}});
+  if (request.payload.class_of <= 2015)
+    return reply({status:'fail',data:{message:'You have already graduated.'}});
 
   email_exists(request.payload.email_address, function(exists){
     if (exists) {
-      return reply({status:'fail',data:{message:'Email Address exists'}});
+      return reply({
+        status:'fail',
+        data:{
+          message:'You have already signed up.',
+          action: 'Check your email ->',
+          href: 'http://'+request.payload.email_address.replace(/.*@/, "")
+        }
+      });
     }
 
     var user = new User({
@@ -39,7 +48,8 @@ var addUser = function(request, reply){
           message: 'An unexpected error occured.'
         });
       }
-      return reply({status:'success'}).code(201);
+      var href = 'http://'+request.payload.email_address.replace(/.*@/, "");
+      return reply({status:'success', data:{href:href}}).code(201);
     });
   });
 }

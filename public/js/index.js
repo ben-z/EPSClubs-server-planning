@@ -5,6 +5,7 @@ var TextField = mui.TextField;
 var RaisedButton = mui.RaisedButton;
 var AppBar = mui.AppBar;
 var IconButton = mui.IconButton;
+var Snackbar = mui.Snackbar;
 
 var Index = React.createClass({displayName: "Index",
 
@@ -16,22 +17,27 @@ var Index = React.createClass({displayName: "Index",
       classOfErrorText: '',
       emailAddressErrorText: '',
       passwordErrorText: '',
+      notiBar: {
+        message: '',
+        action: '',
+        href: '',
+      },
     };
   },
 
-  _handleFNameInputChange: function(e) {
+  _handleFNameInputChange: function() {
     this.setState({
       fNameErrorText: this.refs.first_name.getValue().trim() ? '' : 'What\'s your first name?'
     });
   },
 
-  _handleLNameInputChange: function(e) {
+  _handleLNameInputChange: function() {
     this.setState({
       lNameErrorText: this.refs.last_name.getValue().trim() ? '' : 'What\'s your last name?'
     });
   },
 
-  _handleStudentNumInputChange: function(e) {
+  _handleStudentNumInputChange: function() {
     var value = this.refs.student_number.getValue().trim();
     var isNumeric = !isNaN(parseFloat(value)) && isFinite(value);
     this.setState({
@@ -39,7 +45,7 @@ var Index = React.createClass({displayName: "Index",
     });
   },
 
-  _handleClassOfInputChange: function(e) {
+  _handleClassOfInputChange: function() {
     var value = this.refs.class_of.getValue().trim();
     var isNumeric = !isNaN(parseFloat(value)) && isFinite(value);
     this.setState({
@@ -47,14 +53,14 @@ var Index = React.createClass({displayName: "Index",
     });
   },
 
-  _handleEmailAddressInputChange: function(e) {
+  _handleEmailAddressInputChange: function() {
     var value = this.refs.email_address.getValue().trim();
     this.setState({
       emailAddressErrorText: value ? '' : 'An email address is required.'
     });
   },
 
-  _handleEmailAddressInputBlur: function(e) {
+  _handleEmailAddressInputBlur: function() {
     var value = this.refs.email_address.getValue().trim();
     if(!value)
       return this.setState({
@@ -67,7 +73,7 @@ var Index = React.createClass({displayName: "Index",
     });
   },
 
-  _handlePasswordInputBlur: function(e) {
+  _handlePasswordInputBlur: function() {
     var value = this.refs.password.getValue().trim();
     if(!value)
       return this.setState({
@@ -82,18 +88,66 @@ var Index = React.createClass({displayName: "Index",
 
   handleSignUp: function(e){
     e.preventDefault();
-    var formData = {
-      first_name: this.refs.first_name.getValue().trim(),
-      last_name: this.refs.last_name.getValue().trim(),
-      email_address: this.refs.email_address.getValue().trim(),
-      password: this.refs.password.getValue().trim(),
-      student_number: this.refs.student_number.getValue().trim(),
-      class_of: this.refs.class_of.getValue().trim()
-    };
-    // console.log(formData);
-    $.post("/signup/json", formData, function(data){
-      console.log(data);
-    },'json');
+
+    // Validate fields
+    this._handleFNameInputChange();
+    this._handleLNameInputChange();
+    this._handleStudentNumInputChange();
+    this._handleClassOfInputChange();
+    this._handleEmailAddressInputBlur();
+    this._handlePasswordInputBlur();
+
+    if (!this.state.fNameErrorText &&
+      !this.state.lNameErrorText &&
+      !this.state.studentNumErrorText &&
+      !this.state.classOfErrorText &&
+      !this.state.emailAddressErrorText &&
+      !this.state.passwordErrorText
+      ) {
+
+      var formData = {
+        first_name: this.refs.first_name.getValue().trim(),
+        last_name: this.refs.last_name.getValue().trim(),
+        email_address: this.refs.email_address.getValue().trim(),
+        password: this.refs.password.getValue().trim(),
+        student_number: this.refs.student_number.getValue().trim(),
+        class_of: this.refs.class_of.getValue().trim()
+      };
+      // console.log(formData);
+      $.post("/signup/json", formData, (function(data){
+        console.log(data);
+        if(data.status==='success'){
+
+          // Clear form
+          this.refs.first_name.clearValue();
+          this.refs.last_name.clearValue();
+          this.refs.email_address.clearValue();
+          this.refs.password.clearValue();
+          this.refs.student_number.clearValue();
+          this.refs.class_of.clearValue();
+
+          this.setState({
+            notiBar:{
+              message:'Success!',
+              action:'Check your email ->',
+              href:data.data.href
+            }
+          });
+        }else{
+
+          var message = 'Error: '+data.data.message;
+          var action = data.data.action ? data.data.action:'';
+          var href = data.data.href ? data.data.href:'/';
+
+          this.setState({notiBar:{message:message,action:action, href:href}});
+        }
+        this.refs.notiBar.show();
+      }).bind(this),'json');
+    }
+  },
+
+  _handleNotiBar: function(){
+    window.location.href = this.state.notiBar.href
   },
 
   render: function() {
@@ -167,7 +221,12 @@ var Index = React.createClass({displayName: "Index",
               React.createElement(RaisedButton, {type: "submit", label: "Sign Up"})
             )
           )
-        )
+        ), 
+        React.createElement(Snackbar, {
+          message: this.state.notiBar.message, 
+          ref: "notiBar", 
+          action: this.state.notiBar.action, 
+          onActionTouchTap: this._handleNotiBar})
       )
     );
   },
