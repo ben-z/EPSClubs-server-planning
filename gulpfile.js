@@ -25,6 +25,7 @@ gulp.task('less', function () {
     autoprefixer({browsers: ['last 2 versions']})
   ];
   return gulp.src('./src/less/main.less')
+    .pipe(plumber())
     .pipe(less({
       paths: [ __dirname ]
     }))

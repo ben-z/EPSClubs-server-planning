@@ -73,7 +73,7 @@ var Index = React.createClass({
       return this.setState({
         passwordErrorText:'A password is required.'
       });
-    var regex = /^.{6}$/;
+    var regex = /^.{6,}$/;
     var isValid = regex.test(value);
     this.setState({
       passwordErrorText: isValid ? '' : 'Password must contain at least 6 characters.'
@@ -118,7 +118,10 @@ var Index = React.createClass({
 
     return (
       <div>
-        <AppBar title="Elgin Park Clubs" showMenuIconButton={false}/>
+        <AppBar className="top-bar" title="Elgin Park Clubs" showMenuIconButton={false}>
+          <RaisedButton primary={true} label="Sign In" className="top-bar-button--right"
+            linkButton={true} href="/login"/>
+        </AppBar>
         <div className="main Grid Grid--gutters Grid--full large-Grid--1of2">
           <div className="Grid-cell">
             <h3>Get involved in exciting events<br />Elgin has to offer.</h3>
