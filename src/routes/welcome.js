@@ -1,15 +1,17 @@
 exports.register = function(server, options, next) {
   server.route([{
     method: 'GET',
-    path: '/welcome',
+    path: '/',
     config: {
       handler: function(request, reply){
 
         server.methods.genHtml(
-          'Welcome', // Title
-          'Welcome', // Template name (Welcome.js => Welcome)
+          'Elgin Park Clubs', // Title
+          'Index', // Template name (Welcome.js => Welcome)
           {}, // Props
-          '<script src="js/welcome.js"></script>',
+          '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>'+
+          '<script src="js/index.js"></script>'+
+          '<script src="js/common/topbar.js"></script>',
           function(err, rendered){
             reply(rendered);
           }

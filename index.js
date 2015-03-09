@@ -58,7 +58,10 @@ var genHtml = function(title, template, props, scripts, next){
                   React = window.React; \
                   \
                   React.render( \
-                    React.createElement('+template+', '+props+'), \
+                    React.createElement('+
+                      template+', '+
+                      props+
+                    '), \
                     document.getElementById("content") \
                   ); \
                 } \
@@ -113,6 +116,6 @@ server.register(plugins, function (err) {
     if (err) { throw err; }
 
     server.start(function () {
-        console.log('info', 'Server running at: ' + server.info.uri);
+      console.log('info', 'Server running at: ' + server.info.uri);
     });
 });

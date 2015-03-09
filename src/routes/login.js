@@ -74,13 +74,34 @@ var logout = function(request, reply) {
 
 // Options can be passed to plugins on registration
 exports.register = function(server, options, next) {
-  server.route([{
+  server.route([
+  {
+    method: 'GET',
+    path: '/login',
+    config: {
+      handler: function(request, reply){
+        server.methods.genHtml(
+          'Sign in · Elgin Park Clubs',
+          'Login',
+          {},
+          '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>'+
+          '<script src="js/login.js"></script>'+
+          '<script src="js/common/topbar.js"></script>',
+          function(err, rendered){
+            reply(rendered);
+          }
+        );
+      }
+    }
+  },
+  {
     method: 'POST',
     path: '/login/json',
     config: {
       handler: authenticate
     }
-  }, {
+  },
+  {
     method: 'GET',
     path: '/logout',
     config: {

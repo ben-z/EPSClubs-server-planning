@@ -33,6 +33,7 @@ var addUser = function(request, reply){
 
     user.save(function (err) {
       if (err){
+        console.log(err);
         return reply({
           status: 'error',
           message: 'An unexpected error occured.'
