@@ -1,5 +1,7 @@
 
 
+var AppBar = mui.AppBar;
+
 var TopBar = React.createClass({displayName: "TopBar",
 
   render: function() {

@@ -5,6 +5,10 @@ exports.register = function(server, options, next) {
     config: {
       handler: function(request, reply){
 
+        if(request.auth.isAuthenticated){
+          return reply.redirect('/home');
+        }
+
         server.methods.genHtml(
           'Elgin Park Clubs', // Title
           'Index', // Template name (Welcome.js => Welcome)
@@ -17,7 +21,11 @@ exports.register = function(server, options, next) {
           }
         );
 
-      }
+      },
+      auth: {
+          mode: 'try',
+          strategy: 'session'
+      },
     }
   }]);
 

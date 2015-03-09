@@ -1,7 +1,5 @@
 var React = require('React');
 var TopBar = require('./common/topbar.jsx');
-var mui = require('material-ui');
-var RaisedButton = mui.RaisedButton;
 
 var Index = React.createClass({
 
@@ -24,7 +22,6 @@ var Index = React.createClass({
   render: function() {
     return (
       <div>
-        <RaisedButton label="Default" primary={true} />
         <TopBar />
         <br /><br />
         Get involved in exciting events Elgin has to offer.

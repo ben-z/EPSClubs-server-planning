@@ -1,8 +1,6 @@
 
 
 
-var RaisedButton = mui.RaisedButton;
-
 var Index = React.createClass({displayName: "Index",
 
   handleSignUp: function(e){
@@ -24,7 +22,6 @@ var Index = React.createClass({displayName: "Index",
   render: function() {
     return (
       React.createElement("div", null, 
-        React.createElement(RaisedButton, {label: "Default", primary: true}), 
         React.createElement(TopBar, null), 
         React.createElement("br", null), React.createElement("br", null), 
         "Get involved in exciting events Elgin has to offer.", 

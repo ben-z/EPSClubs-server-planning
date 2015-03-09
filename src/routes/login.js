@@ -63,13 +63,24 @@ var authenticate = function(request, reply) {
   }
 };
 
-var logout = function(request, reply) {
+var logout_json = function(request, reply) {
 
   request.auth.session.clear();
   return reply({
     status: 'success'
   });
 
+};
+
+var logout = function(request, reply) {
+
+  logout_json(request, function(data){
+    if (data.status === 'success') {
+      return reply.redirect('/');
+    } else {
+      return reply('An unknown error occured');
+    }
+  });
 };
 
 // Options can be passed to plugins on registration
@@ -80,6 +91,11 @@ exports.register = function(server, options, next) {
     path: '/login',
     config: {
       handler: function(request, reply){
+
+        if(request.auth.isAuthenticated){
+          return reply.redirect('/home');
+        }
+
         server.methods.genHtml(
           'Sign in · Elgin Park Clubs',
           'Login',
@@ -91,14 +107,29 @@ exports.register = function(server, options, next) {
             reply(rendered);
           }
         );
-      }
+      },
+      auth: {
+          mode: 'try',
+          strategy: 'session'
+      },
     }
   },
   {
     method: 'POST',
     path: '/login/json',
     config: {
-      handler: authenticate
+      handler: authenticate,
+      auth: {
+          mode: 'try',
+          strategy: 'session'
+      },
+    }
+  },
+  {
+    method: 'GET',
+    path: '/logout/json',
+    config: {
+      handler: logout_json
     }
   },
   {

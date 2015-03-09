@@ -1,4 +1,6 @@
 var React = require('React');
+var mui = require('material-ui');
+var AppBar = mui.AppBar;
 
 var TopBar = React.createClass({
 
