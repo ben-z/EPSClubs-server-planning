@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('React');
 var TopBar = require('./common/topbar.jsx');
 
 var Login = React.createClass({

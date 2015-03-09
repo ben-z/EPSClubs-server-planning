@@ -6,6 +6,7 @@ var nodemon = require('gulp-nodemon');
 var watch = require('gulp-watch');
 var cache = require('gulp-cached');
 var plumber = require('gulp-plumber');
+var less = require('gulp-less');
 
 gulp.task('react', function () {
     return gulp.src('react/**/*.jsx')
@@ -15,6 +16,14 @@ gulp.task('react', function () {
         .pipe(replace(/^.*\bmodule.exports\b.*$/m, ''))
         .pipe(replace(/^.*=\ require.*$/gm, ''))
         .pipe(gulp.dest('public/js/'));
+});
+
+gulp.task('less', function () {
+  return gulp.src('./src/less/main.less')
+    .pipe(less({
+      paths: [ __dirname ]
+    }))
+    .pipe(gulp.dest('./public/css/'));
 });
 
 gulp.task('develop', function () {
@@ -27,10 +36,13 @@ gulp.task('develop', function () {
     })
 });
 
-gulp.task('watch', ['react'],function(){
+gulp.task('watch', ['react', 'less'], function(){
   watch('react/**/*.jsx', function() {
-   gulp.start('react');
- });
+    gulp.start('react');
+  });
+  watch('src/less/**/*.less', function() {
+    gulp.start('less');
+  });
 });
 
 gulp.task('default', ['develop', 'watch']);

@@ -24,6 +24,7 @@ var genHead = function(title, next){
   return next(null,
     '<head>'+
       '<title>'+title+'</title>'+
+      '<link rel="stylesheet" type="text/css" href="css/main.css">'+
     '</head>');
 }
 
@@ -50,7 +51,9 @@ var genHtml = function(title, template, props, scripts, next){
           '<!DOCTYPE html><html>'+head+
             '<body>'+
               '<div id="content">'+rendered+'</div>'+
-              '<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.js"></script>'+
+              // '<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.js"></script>'+
+              '<script src="js/common/react.js"></script>'+
+              '<script src="js/common/material-ui.js"></script>'+
               '<script>window.React = React;</script>'+
               scripts+
               '<script> \
