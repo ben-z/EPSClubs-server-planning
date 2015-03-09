@@ -17,6 +17,7 @@
     "react": "^0.12.2"
   },
   "devDependencies": {
+    "autoprefixer-core": "^5.1.7",
     "browserify": "^9.0.3",
     "gulp": "^3.8.11",
     "gulp-browserify": "^0.5.1",
@@ -25,6 +26,7 @@
     "gulp-less": "^3.0.1",
     "gulp-nodemon": "^1.0.5",
     "gulp-plumber": "^0.6.6",
+    "gulp-postcss": "^4.0.3",
     "gulp-react": "^3.0.0",
     "gulp-replace": "^0.5.3",
     "gulp-watch": "^4.1.1"

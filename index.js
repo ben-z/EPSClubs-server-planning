@@ -23,6 +23,7 @@ server.method('safeStringify', safeStringify);
 var genHead = function(title, next){
   return next(null,
     '<head>'+
+      '<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=1">'+
       '<title>'+title+'</title>'+
       '<link rel="stylesheet" type="text/css" href="css/main.css">'+
     '</head>');

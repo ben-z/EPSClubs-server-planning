@@ -7,6 +7,8 @@ var watch = require('gulp-watch');
 var cache = require('gulp-cached');
 var plumber = require('gulp-plumber');
 var less = require('gulp-less');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer-core');
 
 gulp.task('react', function () {
     return gulp.src('react/**/*.jsx')
@@ -19,15 +21,23 @@ gulp.task('react', function () {
 });
 
 gulp.task('less', function () {
+  var processors = [
+    autoprefixer({browsers: ['last 2 versions']})
+  ];
   return gulp.src('./src/less/main.less')
     .pipe(less({
       paths: [ __dirname ]
     }))
+    .pipe(postcss(processors))
     .pipe(gulp.dest('./public/css/'));
 });
 
 gulp.task('develop', function () {
-  nodemon({ script: 'index.js', ext: 'js jsx', ignore: ['public/', 'node_modules', 'gulpfile.js'] })
+  nodemon({
+    script: 'index.js', ext: 'js jsx',
+    ignore: ['public/', 'node_modules', 'gulpfile.js'],
+    env: { 'NODE_ENV': 'development' }
+  })
     .on('restart', function () {
       console.log('\033[2J');
       console.log('----------------I\'m a majestic line----------------');

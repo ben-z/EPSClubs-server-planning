@@ -6,8 +6,109 @@
 
 @import "node_modules/material-ui/src/less/components.less";
 
-//Your custom app styles
-.example-page {
-  text-align: center;
-  padding-top: 200px;
+@import "custom-fonts.less";
+@import "layout/grid.less";
+@import "layout/full-width-section.less";
+@import "footer.less";
+
+html {
+  background-color: @grey-200;
 }
+
+.main {
+  padding:0, 24px, 24px, 24px;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.Grid-cell > * {
+  width:100%;
+}
+
+.Grid-cell > .mui-text-field {
+  max-width:256px;
+}
+
+//Your custom app styles
+.logo {
+  cursor: pointer;
+  .mui-font-style-headline;
+  .mui-text-full-white;
+  line-height: @app-bar-height;
+  .mui-font-weight-light;
+  background-color: @primary-1-color;
+  padding-left: @desktop-gutter;
+  padding-top: 0;
+  margin-bottom: @desktop-gutter-mini;
+}
+
+.mui-app-canvas {
+
+  height: 100%;
+
+  .mui-app-bar {
+    .github-icon-button {
+      float: right;
+      margin-right: -16px;
+    }
+  }
+}
+
+.logo {
+  cursor: pointer;
+  .mui-font-style-headline;
+  .mui-text-full-white;
+  line-height: @app-bar-height;
+  .mui-font-weight-light;
+  background-color: @primary-1-color;
+  padding-left: @desktop-gutter;
+  padding-top: 0;
+  margin-bottom: @desktop-gutter-mini;
+}
+
+.baseline-grid {
+  background-image: url('images/baseline-20px-grid.gif');
+}
+
+.code-example {
+  background-color: @white;
+  margin-bottom: 32px;
+
+  .example-label {
+    .mui-font-style-menu;
+    display: inline-block;
+    text-transform: uppercase;
+    color: @min-black;
+    padding: @desktop-gutter-mini;
+    border-right: solid 1px @border-color;
+    border-bottom: solid 1px @border-color;
+    margin-bottom: 0;
+    border-radius: 0 0 2px 0;
+  }
+
+  .example-block,
+  .code-block {
+    padding: @desktop-gutter;
+  }
+
+  .code-block {
+    border-top: solid 1px @border-color;
+    border-radius: 0 0 2px 2px;
+  }
+}
+
+.example-menu {
+  width: (64px * 4);
+}
+
+.example-menu-nested {
+  width: (64px * 3);
+}
+
+
+
+// .welcome-sign-up-form {
+//   width:50%;
+//   float:right;
+// }

@@ -15,6 +15,7 @@ exports.register = function(server, options, next) {
           {}, // Props
           '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>'+
           '<script src="js/index.js"></script>'+
+          '<script src="js/common/leftnav.js"></script>'+
           '<script src="js/common/topbar.js"></script>',
           function(err, rendered){
             reply(rendered);
