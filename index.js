@@ -55,9 +55,7 @@ var genHtml = function(title, template, props, scripts, next){
             '<body>'+
               '<div id="content">'+rendered+'</div>'+
               // '<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.js"></script>'+
-              '<script src="js/common/react.js"></script>'+
-              '<script src="js/common/material-ui.js"></script>'+
-              '<script src="js/common/TapEventPlugin.js"></script>'+
+              '<script src="js/common/vendor.js"></script>'+
               '<script>window.React = React;</script>'+
               scripts+
               '<script> \

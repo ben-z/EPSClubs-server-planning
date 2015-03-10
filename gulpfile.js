@@ -9,6 +9,7 @@ var plumber = require('gulp-plumber');
 var less = require('gulp-less');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer-core');
+var concat = require('gulp-concat');
 
 gulp.task('react', function () {
     return gulp.src('react/**/*.jsx')
@@ -33,6 +34,17 @@ gulp.task('less', function () {
     .pipe(gulp.dest('./public/css/'));
 });
 
+gulp.task('vendor', function () {
+    return gulp.src([
+      'src/js/vendor/react.js',
+      'src/js/vendor/material-ui.js',
+      'src/js/vendor/TapEventPlugin.js'
+    ])
+        .pipe(plumber())
+        .pipe(concat('vendor.js'))
+        .pipe(gulp.dest('public/js/common/'));
+});
+
 gulp.task('develop', function () {
   nodemon({
     script: 'index.js', ext: 'js jsx',
@@ -47,12 +59,15 @@ gulp.task('develop', function () {
     })
 });
 
-gulp.task('watch', ['react', 'less'], function(){
+gulp.task('watch', ['react', 'less', 'vendor'], function(){
   watch('react/**/*.jsx', function() {
     gulp.start('react');
   });
   watch('src/less/**/*.less', function() {
     gulp.start('less');
+  });
+  watch('src/js/vendor/*.js', function() {
+    gulp.start('vendor');
   });
 });
 

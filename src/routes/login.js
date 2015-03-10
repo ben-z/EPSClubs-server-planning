@@ -101,8 +101,8 @@ exports.register = function(server, options, next) {
           'Login',
           {},
           '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>'+
-          '<script src="js/login.js"></script>'+
-          '<script src="js/common/topbar.js"></script>',
+          '<script src="js/common/topbar.js"></script>'+
+          '<script src="js/login.js"></script>',
           function(err, rendered){
             if(err) throw err;
             reply(rendered);

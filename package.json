@@ -23,6 +23,7 @@
     "gulp-browserify": "^0.5.1",
     "gulp-cached": "^1.0.2",
     "gulp-changed": "^1.1.1",
+    "gulp-concat": "^2.5.2",
     "gulp-less": "^3.0.1",
     "gulp-nodemon": "^1.0.5",
     "gulp-plumber": "^0.6.6",
