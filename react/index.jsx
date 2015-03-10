@@ -1,4 +1,4 @@
-var React = require('React');
+var React = require('react');
 var TopBar = require('./common/topbar.jsx');
 var mui = require('material-ui');
 var TextField = mui.TextField;

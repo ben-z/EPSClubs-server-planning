@@ -18,6 +18,7 @@ exports.register = function(server, options, next) {
           '<script src="js/common/leftnav.js"></script>'+
           '<script src="js/common/topbar.js"></script>',
           function(err, rendered){
+            if(err) throw err;
             reply(rendered);
           }
         );

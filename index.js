@@ -2,7 +2,9 @@ var Hapi = require('hapi');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://test:test@dogen.mongohq.com:10080/epsclubs');
 
-var server = new Hapi.Server();
+var server = new Hapi.Server({
+  // debug: { request: ['error'] }
+});
 server.connection({
   port: 3000
 });
@@ -44,7 +46,7 @@ var genHtml = function(title, template, props, scripts, next){
         }
     };
 
-    server.render(template, props, renderOpts, (function(err, rendered){
+    server.render(template.toLowerCase(), props, renderOpts, (function(err, rendered){
       if (err) return next(err, null);
       server.methods.safeStringify(props,function(err, props){
         if (err) return next(err, null);

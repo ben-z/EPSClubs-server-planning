@@ -1,4 +1,4 @@
-var React = require('React');
+var React = require('react');
 var mui = require('material-ui');
 var AppBar = mui.AppBar;
 var RaisedButton = mui.RaisedButton;
