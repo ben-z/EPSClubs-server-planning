@@ -39,20 +39,31 @@ var TopBar = React.createClass({displayName: "TopBar",
   render: function() {
 
     if (this.props.layout == 'login') {
-      elements = (
+      var showMenuIconButton = false;
+      var elements = (
         React.createElement(RaisedButton, {primary: true, label: "Sign In", className: "top-bar-button--right", 
           linkButton: true, href: "/login"})
       );
     } else if (this.props.layout == 'signup') {
-      elements = (
+      var showMenuIconButton = false;
+      var elements = (
         React.createElement(RaisedButton, {primary: true, label: "Sign Up", className: "top-bar-button--right", 
           linkButton: true, href: "/signup"})
+      );
+    } else if (this.props.layout == 'user') {
+      var showMenuIconButton = true;
+      var elements = (
+        React.createElement(RaisedButton, {primary: true, label: "Sign Out", className: "top-bar-button--right", 
+          linkButton: true, href: "/logout"})
       );
     }
 
     return (
       React.createElement("div", null, 
-        React.createElement(AppBar, {className: "top-bar", title: "Elgin Park Clubs", showMenuIconButton: false}, 
+        React.createElement(AppBar, {
+          className: "top-bar", 
+          title: "Elgin Park Clubs", 
+          showMenuIconButton: showMenuIconButton}, 
           elements
         )
       )

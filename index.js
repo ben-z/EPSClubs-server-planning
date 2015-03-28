@@ -115,7 +115,8 @@ server.route({
 var plugins = [
     { register: require('./src/routes/login') },
     { register: require('./src/routes/signup') },
-    { register: require('./src/routes/welcome') }
+    { register: require('./src/routes/welcome') },
+    { register: require('./src/routes/home') },
 ];
 
 server.register(plugins, function (err) {
